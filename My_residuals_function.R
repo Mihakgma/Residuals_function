@@ -1,9 +1,9 @@
-# Удалить ВСЕ объекты из глобального окружения!
+# РЈРґР°Р»РёС‚СЊ Р’РЎР• РѕР±СЉРµРєС‚С‹ РёР· РіР»РѕР±Р°Р»СЊРЅРѕРіРѕ РѕРєСЂСѓР¶РµРЅРёСЏ!
 # remove EVERYTHING from Environment!
 rm(list=ls(all=TRUE))
 
 # take mtcars DF
-# в качестве датафрейма берем данные из встроенного mtcars
+# РІ РєР°С‡РµСЃС‚РІРµ РґР°С‚Р°С„СЂРµР№РјР° Р±РµСЂРµРј РґР°РЅРЅС‹Рµ РёР· РІСЃС‚СЂРѕРµРЅРЅРѕРіРѕ mtcars
 my_mtcars <- mtcars
 
 View(my_mtcars)
@@ -15,15 +15,15 @@ which_residual <- function(x){
   ind_n <- which(x < nizh_qu - 1.5*IQR(x, na.rm = T))
   ind_v <- which(x > verh_qu + 1.5*IQR(x, na.rm = T))
   car_model <- as.character(rownames(my_mtcars))
-  return(c("Нижние выбросы (Lower residuals): ", car_model[ind_n], 
-           "Верхние выбросы (Upper residuals): ", car_model[ind_v]))
+  return(c("РќРёР¶РЅРёРµ РІС‹Р±СЂРѕСЃС‹ (Lower residuals): ", car_model[ind_n], 
+           "Р’РµСЂС…РЅРёРµ РІС‹Р±СЂРѕСЃС‹ (Upper residuals): ", car_model[ind_v]))
 } 
 
-# Прогоняем полученную функцию определения выбросов по количественным показателям!
+# РџСЂРѕРіРѕРЅСЏРµРј РїРѕР»СѓС‡РµРЅРЅСѓСЋ С„СѓРЅРєС†РёСЋ РѕРїСЂРµРґРµР»РµРЅРёСЏ РІС‹Р±СЂРѕСЃРѕРІ РїРѕ РєРѕР»РёС‡РµСЃС‚РІРµРЅРЅС‹Рј РїРѕРєР°Р·Р°С‚РµР»СЏРј!
 # roll this function around our dataframe columns!
 
 my_residuals <- sapply(my_mtcars, which_residual)
 
-# Смотрим выбросы
+# РЎРјРѕС‚СЂРёРј РІС‹Р±СЂРѕСЃС‹
 # let's look on residuals!
 View(my_residuals)
